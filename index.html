@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Meta Tags -->
+    <title>Moch. Gilang Elang Perkasa | Portfolio</title>
+    <meta name="description" content="Portofolio Moch. Gilang Elang Perkasa, Software Engineer dengan fokus pada pengembangan web, integrasi cross-platform, dan mikrokontroler IoT.">
+    <meta name="keywords" content="Moch. Gilang Elang Perkasa, Software Engineer, Laravel, Flutter, IoT, ESP32, Universitas Borneo Tarakan, Portofolio">
+    <meta name="author" content="Moch. Gilang Elang Perkasa">
+    
+    <!-- Open Graph (Untuk Thumbnail Sosmed) -->
+    <meta property="og:title" content="Moch. Gilang Elang Perkasa | Portfolio">
+    <meta property="og:description" content="Eksplorasi proyek web, AI dashboard, hingga purwarupa hardware IoT.">
+    <meta property="og:image" content="asset/foto.jpeg">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        primary: '#09090b',
+                        secondary: '#71717a',
+                        surface: '#fafafa',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white text-primary selection:bg-black selection:text-white font-sans antialiased leading-relaxed relative overflow-x-hidden">
+
+    <!-- Ambient Glow Effect -->
+    <div class="ambient-glow"></div>
+
+    <!-- Header / Navigasi -->
+    <header class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-zinc-100 reveal-top">
+        <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="text-sm font-extrabold tracking-tighter hover:opacity-70 transition flex items-center gap-1.5">
+                <span class="w-2 h-2"></span> Moch. Gilang Elang Perkasa
+            </a>
+            <div class="flex items-center gap-6 text-sm text-secondary overflow-x-auto py-1 hide-scrollbar">
+                <a href="#about" class="nav-link">Tentang</a>
+                <a href="#skills" class="nav-link">Keahlian</a>
+                <a href="#projects" class="nav-link">Proyek</a>
+                <a href="#experience" class="nav-link">Pengalaman</a>
+                <a href="#github-session" class="nav-link">Arsip</a>
+                <a href="#contact" class="nav-link bg-primary text-white px-4 py-2 rounded-full text-xs font-medium hover:opacity-80 transition no-underline shadow-sm">Kontak</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 pt-36 md:pt-44 pb-24">
+        
+        <!-- Hero -->
+        <section id="hero" class="mb-28 md:mb-36 reveal relative flex items-center min-h-[60vh]">
+            
+            <!-- Elemen Foto Background (Diperbaiki posisinya ke top agar wajah terlihat) -->
+            <div class="absolute right-0 -top-28 md:-top-35 w-full max-w-sm md:max-w-lg lg:max-w-xl opacity-20 grayscale pointer-events-none z-0">
+                <img 
+                    src="asset/hitam_putih.jpeg" 
+                    alt="Hero Background" 
+                    class="w-full h-auto object-contain object-top"
+                    style="-webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%); mask-image: linear-gradient(to bottom, black 50%, transparent 100%);"
+                />
+            </div>
+
+            <!-- Kontainer Teks (ditambahkan relative dan z-10 agar selalu berada di atas gambar) -->
+            <div class="max-w-3xl relative z-10">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200/60 text-xs text-secondary font-medium mb-6 shadow-sm">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> Software Engineer & IoT Enthusiast
+                </div>
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.1] mb-6">
+                    Moch. Gilang Elang Perkasa, S.T.
+                </h1>
+                <p class="text-lg md:text-xl text-secondary mb-10 max-w-2xl leading-relaxed">
+                    Berpengalaman dalam mengembangkan aplikasi berbasis HTML, CSS, JavaScript, Laravel, Dart, dan Flutter untuk membangun sistem yang responsif, efisien, dan mudah digunakan.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projects" class="bg-primary text-white px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-zinc-800 transition flex items-center gap-2 shadow-sm">
+                        Lihat Karya <i class="fas fa-arrow-down text-xs opacity-70"></i>
+                    </a>
+                    <a href="#contact" class="text-primary px-8 py-3.5 rounded-full text-sm font-semibold hover:bg-zinc-50 transition ring-1 ring-zinc-200">
+                        Hubungi Saya
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tentang Saya dengan Polaroid Gallery -->
+        <section id="about" class="mb-32 md:mb-40 reveal">
+            <h2 class="text-xs font-bold text-secondary uppercase tracking-widest mb-8">Latar Belakang</h2>
+            <div class="flex flex-col md:flex-row items-start gap-10 md:gap-20">
+                <!-- Polaroid Gallery Implementation -->
+                <div class="relative w-full md:w-80 h-80 shrink-0 group">
+                    <div class="polaroid absolute top-0 left-2 md:left-6 w-52 bg-white p-3 pb-10 rounded-sm shadow-lg border border-zinc-200 transform -rotate-3 z-20">
+                        <img src="asset/project.jpg" alt="Moch. Gilang Elang Perkasa" class="object-cover w-full aspect-[4/5] bg-zinc-100 grayscale group-hover:grayscale-0 transition-all duration-500" />
+                        <p class="text-center text-xs font-mono mt-3 text-secondary">my photo</p>
+                    </div>
+                    <div class="polaroid absolute bottom-0 right-4 md:-right-4 w-44 bg-white p-3 pb-8 rounded-sm shadow-md border border-zinc-200 transform rotate-6 z-10 hidden sm:block ">
+                        <div class="w-full aspect-square bg-zinc-50 border border-zinc-100 flex items-center justify-center text-zinc-300 grayscale group-hover:grayscale-0 transition-all duration-500">
+                            <img src="asset/IMG_20241218_144559_287.jpg" alt="">
+                        </div>
+                        <p class="text-center text-[10px] font-mono mt-2 text-secondary">project</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-5 text-secondary text-base md:text-lg flex-grow pt-2">
+                    <p class="text-xl font-semibold text-primary leading-snug">
+                        Tentang Saya
+                    </p>
+                    <p>
+                        Saya merupakan seorang Software Engineer yang berfokus pada pengembangan aplikasi web, mobile, dan mikrokontroler IoT.
+                    </p>
+                    <p>
+                        Saya tertarik dalam membangun sistem mudah digunakan, efisien, dan mampu menyelesaikan permasalahan secara efektif. Oleh karena itu, saya selalu berusaha merancang aplikasi dengan mengutamakan pengalaman pengguna (User Experience), performa, serta kemudahan dalam pengembangan dan pemeliharaan. 
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section id="skills" class="mb-32 md:mb-40 reveal">
+            <div class="mb-12">
+                <h2 class="text-xs font-bold text-secondary uppercase tracking-widest mb-2">Tech Stack</h2>
+                <h3 class="text-3xl font-bold tracking-tight">Teknologi & Alat</h3>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div class="p-6 border border-zinc-200/80 rounded-2xl bg-zinc-50/50 flex flex-col items-center justify-center gap-3 hover:border-zinc-800 transition group">
+                    <i class="fab fa-laravel text-3xl text-zinc-400 group-hover:text-red-500 transition"></i>
+                    <span class="font-medium text-sm text-center">Laravel 11</span>
+                </div>
+                <div class="p-6 border border-zinc-200/80 rounded-2xl bg-zinc-50/50 flex flex-col items-center justify-center gap-3 hover:border-zinc-800 transition group">
+                    <i class="fab fa-python text-3xl text-zinc-400 group-hover:text-blue-500 transition"></i>
+                    <span class="font-medium text-sm text-center">Python</span>
+                </div>
+                <div class="p-6 border border-zinc-200/80 rounded-2xl bg-zinc-50/50 flex flex-col items-center justify-center gap-3 hover:border-zinc-800 transition group">
+                    <i class="fas fa-mobile-alt text-3xl text-zinc-400 group-hover:text-cyan-500 transition"></i>
+                    <span class="font-medium text-sm text-center">Flutter / Dart</span>
+                </div>
+                <div class="p-6 border border-zinc-200/80 rounded-2xl bg-zinc-50/50 flex flex-col items-center justify-center gap-3 hover:border-zinc-800 transition group">
+                    <i class="fas fa-microchip text-3xl text-zinc-400 group-hover:text-teal-600 transition"></i>
+                    <span class="font-medium text-sm text-center">IoT / Arduino</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyek Terpilih -->
+        <section id="projects" class="mb-32 md:mb-40 reveal">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 gap-4">
+                <div>
+                    <h2 class="text-xs font-bold text-secondary uppercase tracking-widest mb-2">Portofolio</h2>
+                    <h3 class="text-3xl font-bold tracking-tight">Proyek Unggulan</h3>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Proyek 1: SiTensi -->
+                <div class="project-card bg-white rounded-2xl overflow-hidden border border-zinc-200/80 flex flex-col justify-between group">
+                    <div class="h-44 w-full overflow-hidden bg-zinc-100 relative border-b border-zinc-100 flex items-center justify-center">
+                        <img src="asset/sitensi.jpg" alt="SiTensi Project" class="object-cover w-full h-full group-hover:scale-105 transition duration-500" />
+                        <span class="absolute top-3 right-3 text-[10px] font-semibold tracking-wider uppercase text-primary bg-white/90 px-3 py-1 rounded-full shadow-sm">Mobile Application</span>
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-zinc-600 transition">SiTensi App</h4>
+                            <p class="text-secondary text-sm mb-6 leading-relaxed">Sistem pendukung keputusan menggunakan metode Simple Additive Weighting (SAW) dengan pendekatan R&D Borg and Gall dalam mengembangkan sistem pendeteksi dini resiko terkena hipertensi.</p>
+                        </div>
+                        <div class="pt-4 border-t border-zinc-100 flex items-center justify-between mt-auto">
+                            <span class="text-xs font-mono text-secondary">#flutter #saw</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyek 2 -->
+                <div class="project-card bg-white rounded-2xl overflow-hidden border border-zinc-200/80 flex flex-col justify-between group">
+                    <div class="h-44 w-full overflow-hidden bg-zinc-100 relative border-b border-zinc-100 flex items-center justify-center">
+                        <img src="asset/bennys.jpg" alt="Project Image" class="object-cover w-full h-full group-hover:scale-105 transition duration-500" />
+                        <span class="absolute top-3 right-3 text-[10px] font-semibold tracking-wider uppercase text-primary bg-white/90 px-3 py-1 rounded-full shadow-sm">Mobile Application</span>
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-zinc-600 transition">bennys - manajemen pencatatan bengkel</h4>
+                            <p class="text-secondary text-sm mb-6 leading-relaxed">Platform manajemen dan monitoring pencatatan bengkel.</p>
+                        </div>
+                        <div class="pt-4 border-t border-zinc-100 flex items-center justify-between mt-auto">
+                            <span class="text-xs font-mono text-secondary">#flutter #dart</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyek 3 -->
+                <div class="project-card bg-white rounded-2xl overflow-hidden border border-zinc-200/80 flex flex-col justify-between group lg:col-span-1 md:col-span-2">
+                    <div class="h-44 w-full overflow-hidden bg-zinc-100 relative border-b border-zinc-100 flex items-center justify-center">
+                        <img src="asset/lssd.png" alt="Sistem Pencarian Data" class="object-cover w-full h-full group-hover:scale-105 transition duration-500" />
+                        <span class="absolute top-3 right-3 text-[10px] font-semibold tracking-wider uppercase text-primary bg-white/90 px-3 py-1 rounded-full shadow-sm">Mobile Application</span>
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-zinc-600 transition">Pengembangan web pencatatan laporan game.</h4>
+                            <p class="text-secondary text-sm mb-6 leading-relaxed">sistem ini merupakan pengembangan dalam pencatatan laporan dari faction sebuah game roleplay gta samp, dengan menerapkan HTML dan CSS sehingga laporan bisa di export dalam bentuk kertas catatan yang rapi dah seragam.</p>
+                        </div>
+                        <div class="pt-4 border-t border-zinc-100 flex items-center justify-between mt-auto">
+                            <span class="text-xs font-mono text-secondary">#html #css #website</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card bg-white rounded-2xl overflow-hidden border border-zinc-200/80 flex flex-col justify-between group lg:col-span-1 md:col-span-2">
+                    <div class="h-44 w-full overflow-hidden bg-zinc-100 relative border-b border-zinc-100 flex items-center justify-center">
+                        <img src="asset/self service dine.jpg" alt="Project Image" class="object-cover w-full h-full opacity-90 group-hover:opacity-100 transition duration-500" />
+                        <span class="absolute top-3 right-3 text-[10px] font-semibold tracking-wider uppercase text-primary bg-white/90 px-3 py-1 rounded-full shadow-sm">website</span>
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-zinc-600 transition">Pengembangan web self service Dine</h4>
+                            <p class="text-secondary text-sm mb-6 leading-relaxed">sistem ini merupakan pengembangan dalam pembuatan website untuk layanan pemesanan makanan secara mandiri, dengan menerapkan laravel dan sehingga website dapat digunakan dengan mudah.</p>
+                        </div>
+                        <div class="pt-4 border-t border-zinc-100 flex items-center justify-between mt-auto">
+                            <span class="text-xs font-mono text-secondary">#laravel12 #website #php</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card bg-white rounded-2xl overflow-hidden border border-zinc-200/80 flex flex-col justify-between group lg:col-span-1 md:col-span-2">
+                    <div class="h-44 w-full overflow-hidden bg-zinc-100 relative border-b border-zinc-100 flex items-center justify-center">
+                        <img src="asset/laracofee.png" alt="Pengembangan web sistem pencarian data" class="object-cover w-full h-full grayscale group-hover:grayscale-0 transition duration-500" />
+                        <span class="absolute top-3 right-3 text-[10px] font-semibold tracking-wider uppercase text-primary bg-white/90 px-3 py-1 rounded-full shadow-sm">website</span>
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-zinc-600 transition">Laracofee</h4>
+                            <p class="text-secondary text-sm mb-6 leading-relaxed">sistem ini merupakan pengembangan dalam pembuatan website untuk sistem pencatatan pesanan pada coffee shop.</p>
+                        </div>
+                        <div class="pt-4 border-t border-zinc-100 flex items-center justify-between mt-auto">
+                            <span class="text-xs font-mono text-secondary">#laravel12 #website #php</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card bg-white rounded-2xl overflow-hidden border border-zinc-200/80 flex flex-col justify-between group lg:col-span-1 md:col-span-2">
+                    <div class="h-44 w-full overflow-hidden bg-zinc-100 relative border-b border-zinc-100 flex items-center justify-center">
+                        <img src="asset/project web search.png" alt="Project Thumbnail" class="object-cover w-full h-full opacity-90 group-hover:opacity-100 transition duration-500" />
+                        <span class="absolute top-3 right-3 text-[10px] font-semibold tracking-wider uppercase text-primary bg-white/90 px-3 py-1 rounded-full shadow-sm">website</span>
+                    </div>
+                    <div class="p-6 md:p-8 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 group-hover:text-zinc-600 transition">Pengembangan web sistem pencarian data</h4>
+                            <p class="text-secondary text-sm mb-6 leading-relaxed">sistem ini merupakan pengembangan dalam pembuatan website untuk sistem pencarian data, dengan menerapkan HTML dan CSS dengan mengitengrasikan file JSON yang berisi data, sistem akan membaca dan mencari data tersebut..</p>
+                        </div>
+                        <div class="pt-4 border-t border-zinc-100 flex items-center justify-between mt-auto">
+                            <span class="text-xs font-mono text-secondary">#laravel12 #website #php</span>
+                        </div>
+                    </div>
+
+            </div>
+        </section>
+
+        <!-- Pengalaman & Pengabdian (Baru) -->
+        <section id="experience" class="mb-32 md:mb-40 reveal">
+            <div class="mb-12">
+                <h2 class="text-xs font-bold text-secondary uppercase tracking-widest mb-2">Jejak Langkah</h2>
+                <h3 class="text-3xl font-bold tracking-tight">Pengalaman & Kolaborasi</h3>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- Pengabdian 1: Tarakan -->
+                <div class="p-6 md:p-8 border border-zinc-200/80 rounded-2xl bg-white shadow-sm flex flex-col md:flex-row gap-6 items-start group hover:border-zinc-300 transition">
+                    <div class="w-12 h-12 bg-zinc-50 border border-zinc-100 rounded-full flex items-center justify-center shrink-0 text-zinc-400 group-hover:text-blue-500 group-hover:bg-blue-50 transition">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2 gap-2">
+                            <h4 class="text-lg font-bold text-primary">
+                                PENINGKATAN KETERAMPILAN BRANDING UMKM TARAKAN MELALUI PEMANFAATAN TEKNOLOGI DIGITAL DI ERA 4.0
+                            </h4>
+                            <span class="text-[10px] font-mono bg-zinc-100 text-secondary px-3 py-1 rounded-full whitespace-nowrap">
+                                Tarakan
+                            </span>
+                        </div>
+                        <p class="text-sm text-secondary leading-relaxed mb-4">
+                            Melakukan sosialisasi kepada pelaku UMKM dimana Kemampuan pelaku UMKM di Kota Tarakan mengalami peningkatan dalam memanfaatkan teknologi digital untuk membangun branding, menggunakan software editing, serta mengoptimalkan media sosial sebagai sarana promosi produk.
+                        </p>
+                        <a href="https://www.researchgate.net/publication/389396639_PENINGKATAN_KETERAMPILAN_BRANDING_UMKM_TARAKAN_MELALUI_PEMANFAATAN_TEKNOLOGI_DIGITAL_DI_ERA_40"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 text-xs font-semibold text-primary bg-zinc-100 hover:bg-zinc-200 border border-zinc-200/80 py-2 px-4 rounded-lg transition">
+                            <i class="fas fa-external-link-alt"></i>
+                            Lihat Detail
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pengabdian 2: Bulungan -->
+                <div class="p-6 md:p-8 border border-zinc-200/80 rounded-2xl bg-white shadow-sm flex flex-col md:flex-row gap-6 items-start group hover:border-zinc-300 transition">
+                    <div class="w-12 h-12 bg-zinc-50 border border-zinc-100 rounded-full flex items-center justify-center shrink-0 text-zinc-400 group-hover:text-blue-500 group-hover:bg-blue-50 transition">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2 gap-2">
+                            <h4 class="text-lg font-bold text-primary">
+                                Pengembangan Website SDA Bulungan
+                            </h4>
+                            <span class="text-[10px] font-mono bg-zinc-100 text-secondary px-3 py-1 rounded-full whitespace-nowrap">
+                                Bulungan
+                            </span>
+                        </div>
+                        <p class="text-sm text-secondary leading-relaxed mb-4">
+                            Menjadi bagian dari tim pengembangan website untuk Dinas Sumber Daya Alam Kabupaten Bulungan, yang bertujuan untuk meningkatkan transparansi dan akses informasi terkait pengelolaan sumber daya alam di wilayah tersebut.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Pengalaman Organisasi -->
+                <div class="p-6 md:p-8 border border-zinc-200/80 rounded-2xl bg-white shadow-sm flex flex-col md:flex-row gap-6 items-start group hover:border-zinc-300 transition">
+                    <div class="w-12 h-12 bg-zinc-50 border border-zinc-100 rounded-full flex items-center justify-center shrink-0 text-zinc-400 group-hover:text-blue-500 group-hover:bg-blue-50 transition">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2 gap-2">
+                            <h4 class="text-lg font-bold text-primary">
+                                Organisasi Mahasiswa 
+                            </h4>
+                            <span class="text-[10px] font-mono bg-zinc-100 text-secondary px-3 py-1 rounded-full whitespace-nowrap">
+                                Universitas Borneo Tarakan
+                            </span>
+                        </div>
+                        <p class="text-sm text-secondary leading-relaxed mb-4">
+                            Mengembangkan kemampuan selama berorganisasi dengan cara mengelola kegiatan, membangun jejaring, dan meningkatkan keterampilan kepemimpinan melalui pelatihan dan workshop. Saya menjadi bagian dari beberapa organisasi selama masih perkuliahan, diantaranya:
+                        </p>
+                        <ul class="list-disc list-inside text-sm text-secondary space-y-1">
+                            <li>Himpunan Mahasiswa Teknik Komputer (HMTK) - Sebagai Anggota dan Kepala Divisi INFOKOM</li>
+                            <li>Google Developer Student Clubs (GDSC) - Sebagai CoreTeam</li>
+                            <li>Badan Eksekutif Mahasiswa (BEM) Fakultas Teknik - Sebagai Anggota Divisi INFOKOM</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+</div>
+        </section>
+
+        <!-- Arsip GitHub (Dynamic Activity) -->
+        <section id="github-session" class="mb-32 md:mb-40 reveal">
+            <div class="bg-zinc-50/80 border border-zinc-200/80 rounded-3xl p-8 md:p-12 mb-8 shadow-sm">
+                <div class="flex items-center flex-wrap gap-3 mb-4">
+                    <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="text-xs font-mono text-secondary uppercase tracking-wider">GitHub Session // Live Activity</span>
+                    <span id="github-repo-count" class="ml-auto text-[10px] font-bold bg-primary text-white px-3 py-1.5 rounded-full flex items-center gap-2">
+                        <i class="fas fa-spinner fa-spin"></i> Fetching stats...
+                    </span>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight mb-3">Jejak Kontribusi Kode</h3>
+                <p class="text-secondary text-sm md:text-base max-w-2xl mb-6">
+                    Pantauan langsung dari aktivitas publik saya di GitHub. Untuk melihat detail kode, skrip server, atau purwarupa IoT, silakan kunjungi profil saya.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Kolom Kiri: Grafik Kontribusi -->
+                <div class="md:col-span-2 bg-white border border-zinc-200/80 rounded-2xl p-6 md:p-8 shadow-sm flex flex-col justify-center">
+                    <h4 class="text-sm font-bold text-primary mb-6 flex items-center gap-2">
+                        <i class="fas fa-chart-area text-zinc-400"></i> Grafik Kontribusi
+                    </h4>
+                    <!-- Menggunakan API pihak ketiga untuk generate chart dari username gilangelang -->
+                    <div class="overflow-x-auto hide-scrollbar pb-2">
+                        <img src="https://ghchart.rshah.org/09090b/mochgilang17" alt="GitHub Contribution Chart" class="min-w-[600px] w-full h-auto opacity-90 hover:opacity-100 transition duration-300" />
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Live Feed Aktivitas -->
+                <div class="bg-white border border-zinc-200/80 rounded-2xl p-6 md:p-8 shadow-sm flex flex-col">
+                    <h4 class="text-sm font-bold text-primary mb-6 flex items-center gap-2">
+                        <i class="fas fa-history text-zinc-400"></i> Aktivitas Terkini
+                    </h4>
+                    
+                    <div id="github-activity-feed" class="flex-grow space-y-5">
+                        <!-- Skeleton Loading -->
+                        <div class="animate-pulse flex gap-3">
+                            <div class="rounded-full bg-zinc-200 h-7 w-7 shrink-0"></div>
+                            <div class="flex-1 space-y-2 py-1">
+                                <div class="h-2.5 bg-zinc-200 rounded w-3/4"></div>
+                                <div class="h-2.5 bg-zinc-200 rounded w-1/2"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://github.com/mochgilang17" target="_blank" class="mt-8 text-center text-xs font-semibold text-primary bg-zinc-50 hover:bg-zinc-100 border border-zinc-200/80 py-3 rounded-xl transition w-full inline-flex items-center justify-center gap-2">
+                        <i class="fab fa-github"></i> Kunjungi Profil GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Media -->
+        <section id="social-media" class="mb-32 md:mb-40 reveal">
+            <div class="mb-12">
+                <h2 class="text-xs font-bold text-secondary uppercase tracking-widest mb-2">Jejaring & Koneksi</h2>
+                <h3 class="text-3xl font-bold tracking-tight">Social Media & Platform</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="https://www.linkedin.com/in/lang17/" target="_blank" class="project-card bg-white rounded-2xl p-6 border border-zinc-200/80 flex items-center justify-between group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-center text-xl text-primary group-hover:bg-primary group-hover:text-white transition duration-300 shadow-sm">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-base text-primary">LinkedIn</h4>
+                            <p class="text-xs text-secondary font-mono">Professional</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-arrow-right text-xs text-secondary group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <a href="https://instagram.com/mochgilangelangperkasa" target="_blank" class="project-card bg-white rounded-2xl p-6 border border-zinc-200/80 flex items-center justify-between group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-center text-xl text-primary group-hover:bg-primary group-hover:text-white transition duration-300 shadow-sm">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-base text-primary">Instagram</h4>
+                            <p class="text-xs text-secondary font-mono">Moments</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-arrow-right text-xs text-secondary group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <a href="https://discord.com/users/617623657543499777" target="_blank" class="project-card bg-white rounded-2xl p-6 border border-zinc-200/80 flex items-center justify-between group">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-zinc-50 border border-zinc-100 flex items-center justify-center text-xl text-primary group-hover:bg-primary group-hover:text-white transition duration-300 shadow-sm">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-base text-primary">Discord</h4>
+                            <p class="text-xs text-secondary font-mono">Community</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-arrow-right text-xs text-secondary group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Kontak -->
+        <section id="contact" class="bg-zinc-50/80 rounded-3xl p-12 md:p-20 text-center border border-zinc-200/80 reveal shadow-sm">
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">Mari berkolaborasi.</h2>
+            <p class="text-lg text-secondary mb-8 max-w-xl mx-auto leading-relaxed">
+                Tertarik untuk membangun sistem web interaktif atau membutuhkan solusi arsitektur jaringan dan perangkat keras? Mari berdiskusi.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:gilangelangperkasa@gmail.com" class="inline-flex bg-primary text-white px-8 py-3.5 rounded-full font-semibold hover:bg-zinc-800 transition text-sm items-center gap-2 shadow-sm">
+                    <i class="fas fa-envelope text-xs"></i> Email Saya
+                </a>
+                <a href="https://wa.me/6281234888046" target="_blank" class="inline-flex bg-green-600 text-white px-8 py-3.5 rounded-full font-semibold hover:bg-green-700 transition text-sm items-center gap-2 shadow-sm">
+                    <i class="fab fa-whatsapp text-xs"></i> WhatsApp
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-zinc-100 py-10 reveal">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-secondary">
+            <p>&copy;2026 Moch. Gilang Elang Perkasa.</p>
+            <div class="flex gap-6 text-base">
+                <a href="https://github.com/mochgilang17" target="_blank" class="hover:text-primary transition"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/lang17/" target="_blank" class="hover:text-primary transition"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/mochgilangelangperkasa" target="_blank" class="hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                <a href="https://discord.com/users/617623657543499777" target="_blank" class="hover:text-primary transition"><i class="fab fa-discord"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
