@@ -1,9 +1,13 @@
 /* --- Styling Tambahan & Efek Estetik --- */
 
-html {
+html, body {
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: #A1A1AA #F4F4F5;
+    /* Tambahan agar tidak bisa digeser kanan kiri di HP */
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* Ambient Glow Background */
