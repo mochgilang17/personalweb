@@ -1,0 +1,102 @@
+/* --- Styling Tambahan & Efek Estetik --- */
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #A1A1AA #F4F4F5;
+}
+
+/* Ambient Glow Background */
+.ambient-glow {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 350px;
+    background: linear-gradient(180deg, rgba(240, 240, 245, 0.8) 0%, rgba(255, 255, 255, 0) 100%);
+    filter: blur(80px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+.project-card, .repo-card {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.project-card:hover, .repo-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+    border-color: #d4d4d8;
+}
+
+.nav-link {
+    position: relative;
+    text-decoration: none;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1.5px;
+    bottom: -2px;
+    left: 0;
+    background-color: #09090b;
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Polaroid Gallery Enhanced */
+.polaroid {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.06) translateY(-8px);
+    box-shadow: 0 25px 35px -10px rgba(0, 0, 0, 0.12);
+    z-index: 20;
+}
+
+/* --- Tambahan: Animasi Scroll Reveal --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-top {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
