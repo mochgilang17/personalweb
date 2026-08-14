@@ -1,24 +1,31 @@
-/* --- Styling Utama & Reset --- */
+/* --- Reset Universal --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 html, body {
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: #A1A1AA #F4F4F5;
-    /* Memastikan tidak ada scrollbar ganda */
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
     width: 100%;
-    max-width: 100vw;
+    height: 100%;
     margin: 0;
     padding: 0;
 }
 
-/* Memastikan elemen main mengikuti layout dokumen utama, bukan scroll sendiri */
-main {
-    overflow: visible !important;
-    height: auto !important;
+body {
+    position: relative;
+    /* Mencegah body membuat kontainer scroll kedua */
+    height: auto; 
     min-height: 100vh;
 }
 
+main {
+    overflow: visible !important;
+    height: auto !important;
+}
 /* Ambient Glow Background */
 .ambient-glow {
     position: absolute;
