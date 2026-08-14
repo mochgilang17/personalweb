@@ -1,13 +1,22 @@
-/* --- Styling Tambahan & Efek Estetik --- */
-
+/* --- Styling Utama & Reset --- */
 html, body {
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: #A1A1AA #F4F4F5;
-    /* Tambahan agar tidak bisa digeser kanan kiri di HP */
+    /* Memastikan tidak ada scrollbar ganda */
     overflow-x: hidden;
+    overflow-y: auto;
     width: 100%;
     max-width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+/* Memastikan elemen main mengikuti layout dokumen utama, bukan scroll sendiri */
+main {
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 100vh;
 }
 
 /* Ambient Glow Background */
@@ -24,6 +33,7 @@ html, body {
     pointer-events: none;
 }
 
+/* --- Animasi --- */
 .fade-in-up {
     opacity: 0;
     transform: translateY(24px);
@@ -42,6 +52,7 @@ html, body {
 .delay-3 { animation-delay: 0.3s; }
 .delay-4 { animation-delay: 0.4s; }
 
+/* --- Komponen --- */
 .project-card, .repo-card {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -69,7 +80,7 @@ html, body {
     width: 100%;
 }
 
-/* Polaroid Gallery Enhanced */
+/* Polaroid Gallery */
 .polaroid {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -79,7 +90,7 @@ html, body {
     z-index: 20;
 }
 
-/* --- Tambahan: Animasi Scroll Reveal --- */
+/* --- Animasi Scroll Reveal --- */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
