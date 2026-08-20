@@ -107,6 +107,116 @@ async function fetchGitHubActivity() {
     }
 }
 
+// --- 4. Logika Image Slider untuk Card ---
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.group\\/slider').forEach(sliderContainer => {
+        const track = sliderContainer.querySelector('.slider-track');
+        const images = track.querySelectorAll('img');
+        const prevBtn = sliderContainer.querySelector('.slider-prev');
+        const nextBtn = sliderContainer.querySelector('.slider-next');
+        
+        // Jika ada lebih dari 1 gambar, tampilkan tombol & aktifkan slide
+        if (images.length > 1) {
+            prevBtn.classList.remove('hidden');
+            nextBtn.classList.remove('hidden');
+            
+            let currentIndex = 0;
+            
+            const updateSlider = () => {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            };
+
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Mencegah scroll tiba-tiba
+                currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+                updateSlider();
+            });
+
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+                updateSlider();
+            });
+        }
+    });
+});
+
+// Fungsi untuk mengambil dan me-render data Aktivitas dari Google Sheets
+async function fetchActivityData() {
+    const container = document.getElementById('activity-container');
+    if (!container) return;
+
+    try {
+        // Ganti URL ini dengan URL API JSON dari Google Sheets kamu
+        const response = await fetch('https://sheetdb.io/api/v1/7l8jx5yf41fxh'); 
+        const activities = await response.json();
+        
+        container.innerHTML = ''; // Hapus skeleton loading
+
+        activities.forEach(item => {
+            // Cek ketersediaan foto 1 sampai 3 untuk slider
+            let imagesHtml = '';
+            
+            if (item.foto_1 && item.foto_1.trim() !== "") {
+                imagesHtml += `<img src="${item.foto_1}" alt="${item.nama_kegiatan} 1" class="w-full h-full object-cover shrink-0">`;
+            }
+            if (item.foto_2 && item.foto_2.trim() !== "") {
+                imagesHtml += `<img src="${item.foto_2}" alt="${item.nama_kegiatan} 2" class="w-full h-full object-cover shrink-0">`;
+            }
+            if (item.foto_3 && item.foto_3.trim() !== "") {
+                imagesHtml += `<img src="${item.foto_3}" alt="${item.nama_kegiatan} 3" class="w-full h-full object-cover shrink-0">`;
+            }
+
+            // Jika tidak ada foto sama sekali, beri gambar placeholder (opsional)
+            if (imagesHtml === '') {
+                imagesHtml = `<div class="w-full h-full bg-zinc-200 flex items-center justify-center text-zinc-400 text-xs">No Image</div>`;
+            }
+
+            // Struktur Card HTML
+            const cardHtml = `
+                <div class="border border-zinc-200/80 rounded-2xl bg-white shadow-sm flex flex-col justify-between group hover:border-zinc-300 transition overflow-hidden">
+                    <div class="relative w-full h-48 bg-zinc-100 overflow-hidden group/slider">
+                        <div class="flex transition-transform duration-500 ease-out h-full slider-track">
+                            ${imagesHtml}
+                        </div>
+                        <button class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-primary opacity-0 group-hover/slider:opacity-100 transition shadow-sm slider-prev hidden z-10">
+                            <i class="fas fa-chevron-left text-xs pointer-events-none"></i>
+                        </button>
+                        <button class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 hover:bg-white rounded-full flex items-center justify-center text-primary opacity-0 group-hover/slider:opacity-100 transition shadow-sm slider-next hidden z-10">
+                            <i class="fas fa-chevron-right text-xs pointer-events-none"></i>
+                        </button>
+                    </div>
+
+                    <div class="p-6 md:p-8 flex flex-col flex-grow">
+                        <div>
+                            <span class="text-[10px] font-mono bg-zinc-100 text-secondary px-3 py-1 rounded-full">
+                                ${item.judul}
+                            </span>
+                            <h4 class="text-lg font-bold text-primary mt-3 mb-2">
+                                ${item.nama_kegiatan}
+                            </h4>
+                            <p class="text-sm text-secondary leading-relaxed mb-6">
+                                ${item.deskripsi}
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-zinc-100 mt-auto">
+                            <span class="text-xs font-mono text-secondary">${item.tags}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.insertAdjacentHTML('beforeend', cardHtml);
+        });
+
+        // Panggil kembali fungsi slider agar tombol prev/next aktif sesuai jumlah foto
+        initSliders();
+
+    } catch (error) {
+        console.error("Gagal mengambil data aktivitas:", error);
+        container.innerHTML = '<p class="text-secondary text-sm">Gagal memuat rekam jejak.</p>';
+    }
+}
+
 // Inisialisasi fungsi secara bersamaan setelah delay 1 detik
 setTimeout(() => {
     fetchGitHubStats();

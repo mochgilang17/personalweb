@@ -1,7 +1,4 @@
-/* --- Reset Universal --- */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
+/* --- Styling Tambahan & Efek Estetik --- */
 
 html {
     scroll-behavior: smooth;
@@ -9,29 +6,6 @@ html {
     scrollbar-color: #A1A1AA #F4F4F5;
 }
 
-body {
-    overflow-x: hidden;
-    width: 100%;
-    position: relative;
-}
-
-body {
-    position: relative;
-    /* Mencegah body membuat kontainer scroll kedua */
-    height: auto; 
-    min-height: 100vh;
-}
-
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-    max-width: 100vw;
-}
-
-main {
-    overflow: visible !important;
-    height: auto !important;
-}
 /* Ambient Glow Background */
 .ambient-glow {
     position: absolute;
@@ -46,7 +20,6 @@ main {
     pointer-events: none;
 }
 
-/* --- Animasi --- */
 .fade-in-up {
     opacity: 0;
     transform: translateY(24px);
@@ -65,7 +38,6 @@ main {
 .delay-3 { animation-delay: 0.3s; }
 .delay-4 { animation-delay: 0.4s; }
 
-/* --- Komponen --- */
 .project-card, .repo-card {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -93,7 +65,7 @@ main {
     width: 100%;
 }
 
-/* Polaroid Gallery */
+/* Polaroid Gallery Enhanced */
 .polaroid {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -103,7 +75,7 @@ main {
     z-index: 20;
 }
 
-/* --- Animasi Scroll Reveal --- */
+/* --- Tambahan: Animasi Scroll Reveal --- */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
